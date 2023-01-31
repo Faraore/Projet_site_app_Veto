@@ -1,0 +1,5 @@
+Projet fianal de ma formation de dev web
+
+le but du projet véto est de crée un outil qui permetrais de centraliser les informations
+d'un animal de compagnie via carnet de santé numerique qui pourrai a terme venir remplacer ou
+completer un carnet de santé papier 

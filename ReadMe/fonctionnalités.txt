@@ -1,0 +1,9 @@
+Fonctionnalités
+
+-Agenda
+-Bloc-note
+-Ajout/modif/sup d'un ou des animaux
+-Ajout/modif/sup d'un véto
+-Localisation véto
+-Numero utile
+-Suivi d'animaux "carnet de santé page suivi" (suivi de medoc/post-op/vaccin/poid/consulte)
