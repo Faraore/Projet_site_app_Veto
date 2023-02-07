@@ -1,0 +1,114 @@
+/*--------reset all ------------------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+/*-------------------------variable----------------------------------------*/
+:root{
+    --bg-primary: rgba(120, 162, 148, 0.906);
+    --fontColor: rgba(0, 0, 0);
+}
+/*--------------- style de mon header ------------*/
+body > header{
+    width: 100%;
+    background-color: var(--bg-primary);
+   
+	align-items: center
+}
+
+
+.Logo{
+    
+    text-align: center;
+
+}
+.Logo > img{
+    
+    width: 10%;
+}
+
+/*-------------------navBarNOco---------------------------------------------------*/
+body > header > nav > ul{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 5em;
+}
+
+
+/*-----------------------------menu burger---------------------------------------*/
+/*----------------------main----------------------------------------------*/
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*----------------------cardAcceuilStyle-----------------------------------------*/
+body > main > article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: var(--fontColor);
+  }
+  .containerCard1,.containerCard2,.containerCard3,.containerCard4 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+  .card {
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 33%;
+  }
+  .card-header img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+    min-height: 250px;
+  }
+  
+  .tag {
+    background: #cccccc;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    
+  }
+  .tagCompagnon {
+    background-color: #47bcd4;
+  }
+  .tagSuivi {
+    background-color: #5e76bf;
+  }
+  .tagAgenda {
+    background-color: #e3309c;
+  }
+  .tagVeto{
+    background-color: rgb(41, 171, 121);
+  }
+  
+  .card-body > p {
+    font-size: 1.5rem;
+    margin: 20px;
+  }
+  /*--------------------footer-------------------------------------------------*/
+  body > footer{
+    width: 100%;
+    background-color: var(--bg-primary);
+   height: 300px;
+}
