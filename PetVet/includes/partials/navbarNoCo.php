@@ -1,7 +1,7 @@
 <ul>
-    <li><a href="index.php">Acceuil</a></li>
+    <li><a href="index.php">Accueil</a></li>
     <li><a href="">Conctact</a></li>
-    <li><a href="partials/formConnexion.phtml">Connexion/inscription</a></li>
+    <li><a href="includes/core/views/formConnexion.phtml">Connexion/inscription</a></li>
     
 </ul>
 <div id="btnBurger">

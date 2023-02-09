@@ -3,7 +3,7 @@
 function getConnection(){
     $sever = 'localhost';
     $port = '3306';
-    $dbname = 'petvet_bdd';
+    $dbname = 'bdd_petvet';
     $username = '';
     $password = '';
 
