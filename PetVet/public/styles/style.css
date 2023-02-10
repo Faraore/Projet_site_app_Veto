@@ -163,7 +163,6 @@
       height: 30%;
       text-align: center;
       color: green;
-      
   }
   .signup{
       width:80%
@@ -174,7 +173,7 @@
   form {
     width: 100%;
   }  
-  input {
+  input, textarea {
       width: 80%;
       border: 0;
       padding: 2%;
@@ -210,5 +209,31 @@
 
   .buttonForms:hover{
     background: #036e53;
+  }
+
+  /*----------------------------formConnexion----------------------------------------*/
+
+  .forms-contact{
+    width: 40%;
+    height: 100vh;
+    background: rgb(228, 227, 227);
+    box-shadow: .5em 0px 0px 0 rgba(rgb(34, 33, 33), 0.2);
+    font-family: "Source Sans Pro", sans-serif;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .contact{
+    width:60%;
+    margin-top: 20%;
+  }
+  textarea{
+    height:10vw;
+  }
+  .heading-contact{
+    font-size: 1.9vw;
+    text-align: center;
+    color: green;
   }
 }
