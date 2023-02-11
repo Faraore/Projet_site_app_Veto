@@ -1,33 +1,33 @@
 <?php
 
-class password_verify{
-    private int $id;
-    private int $codePostal;
-    private string $ville;
+class pays{
+    private $c_id;
+    private $c_codePostal;
+    private $c_ville;
 
     public function __construct(int $codePostal, string $ville){
-        $this->codePostal = $codePostal;
-        $this->ville = $ville;
-        $this->id = $id;
+        $this->c_codePostal = $codePostal;
+        $this->c_ville = $ville;
+        $this->c_id = $id;
 
 }
     public function getId(): int{
-        return $this->id,
+        return $this->c_id;
     }
-    public function setId(): void{
-       $this->id = $id;
+    public function setId(int $id): void{
+       $this->c_id = $id;
     }
     public function getCodePostal(): int{
-        return $this->codePostal;
+        return $this->c_codePostal;
     }
-    public function setCodePostal(): void{
-        $this->codePostal = $codePostal;
+    public function setCodePostal(int $codePostal): void{
+        $this->c_codePostal = $codePostal;
     }
     public function getVille(): string{
-        return $this->ville;
+        return $this->c_ville;
     }
-    public function setVille(): void{
-        $this->ville = $ville;
+    public function setVille(string $ville): void{
+        $this->c_ville = $ville;
     }
-
+}
     

@@ -1,34 +1,34 @@
 <?php
     class connexion{
-        private int $id;
-        private string $mail;
-        private string $password;
+        private $c_id;
+        private $c_mail;
+        private $c_password;
         //private string $questionSecrete;
 
         public function __construct(string $mail, string $password){
-            $this->mail = $mail;
-            $this->password = $password;
-            $this->id = $id;
+            $this->c_mail = $mail;
+            $this->c_password = $password;
+            $this->c_id = $id;
         }
 
         public function getId(): int{
-            return $this->id;
+            return $this->c_id;
         }
         public function setId(int $id): void{
-            $this->id=$id;
+            $this->c_id=$id;
 
         }
         public function getMail(): string{
-            return $this->mail;
+            return $this->c_mail;
         }
-        public function setMail(): void{
-            $this->mail =$mail;
+        public function setMail(string $mail): void{
+            $this->c_mail =$mail;
         }
-        public function getPAssword(): string{
-            return $this->password;
+        public function getPassword(): string{
+            return $this->c_password;
         }
-        public function setPassword(): void{
-            $this->password =$password;
+        public function setPassword(string $password): void{
+            $this->c_password =$password;
         }
 
 

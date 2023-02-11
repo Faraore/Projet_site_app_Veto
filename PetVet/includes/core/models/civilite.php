@@ -1,36 +1,37 @@
 <?php
 
     class civilite{
-        private int $id; 
-        private string $libelleLong;
-        private string $libelleCourt;
+        private $c_id; 
+        private $c_libelleLong;
+        private $c_libelleCourt;
 
         public function __construct(string $libelleLong, string $libelleCourt){
-            $this->libelleLong = $libelleLong;
-            $this->libelleCourt = $libelleCourt;
-            $this->id = $id;
+            $this->c_libelleLong = $libelleLong;
+            $this->c_libelleCourt = $libelleCourt;
+            $this->c_id = $id;
         }
 
         public function getId(): int{
-            return $this->id;
+            return $this->c_id;
         }
     
         public function setId(int $id): void{
-            $this->id = $id;
+            $this->c_id = $id;
 
     }
         public function getLibelleLong(): string{
-            return $this->libelleLong;
+            return $this->c_libelleLong;
         }
 
-        public function setLibelleLong(): void{
-            $this->libelleLong = $libelleLong;
+        public function setLibelleLong(string $libelleLong): void{
+            $this->c_libelleLong = $libelleLong;
         }
 
         public function getLibelleCourt(): string{
-            return $this->libelleCourt;
+            return $this->c_libelleCourt;
         }
 
-        public function setLibelleLong(): void{
-            $this->libelleCourt = $libelleCourt;
+        public function setLibelleCourt(string $libelleCourt): void{
+            $this->c_libelleCourt = $libelleCourt;
         }
+    }
