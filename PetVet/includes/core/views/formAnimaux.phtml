@@ -1,0 +1,64 @@
+<?php
+	ini_set('display_errors', 'on');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="public/styles/style.css" type="text/css"/>
+
+    <title>formAnimaux</title>
+</head>
+<body>
+<header>
+		<nav>
+		<?php require "includes/partials/navbarCo.php"; ?>
+		</nav>
+	</header>
+	<main>
+		<div class="forms">
+			<div class="form">
+				<div class ="signup">
+					<div class="heading">Ajouter un animal </div>
+					<form action="" method= "post" autocomplete="off">
+						<label  for="champFamille">Famille de l'animal</label>
+                        <select name= "champFamille" id="champFamille">
+                            <option value="0">Sélectionner</option>
+                            <?php
+								foreach($lesFamilles as $famille){
+									if($famille->getId() == $unAnimal->getFamille()->getId()){
+										print('<option value="'.$famille->getId().'" selected>'.$famille->getType().'</option>');
+										 
+									}else{
+										print('<option value="'.$famille->getId().'">'.$famille->getType().'</option>');
+									}
+								}
+                            ?>
+                        </select>
+						<input type="text" name="champNom" id="champNom" placeholder="Nom">
+                        <label  for="champSexe">Sexe de l'animal</label>
+                        <select name= "champSexe" id="champSexe">
+                            <option value="0">Sélectionner</option>
+                            <?php
+								foreach($lesSexes as $sexe){
+									if($sexe->getId() == $unAnimal->getSexe()->getId()){
+										print('<option value="'.$sexe->getId().'" selected>'.$sexe->getSexe().'</option>');
+									}else{
+										print('<option value="'.$sexe->getId().'">'.$sexe->getSexe().'</option>');
+									}
+								}
+                            ?>
+                        </select>
+						<input type="date" name="champDateNaissance" id="champDateNaissance" placeholder="Date de Naissance">
+						<input type="int" name="champPoids" id="champPoids" placeholder="Poids">
+					    <button class="buttonForms" id="btnInscrip" type="submit">Ajouter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+    
+</body>
+</html>

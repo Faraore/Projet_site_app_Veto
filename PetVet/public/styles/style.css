@@ -137,10 +137,9 @@
     padding-bottom: .5%;
   }
 
-  /*----------------------------formConnexion----------------------------------------*/
+  /*----------------------------formConnexion/inscription----------------------------------------*/
   form, .form {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
   }
@@ -153,6 +152,7 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .form {
     width: 80%;
@@ -233,4 +233,99 @@
     text-align: center;
     color: green;
   }
+}
+/*-----------------------------------------card liste Animaux----------------------------------------------------------------------------*/
+
+/*.bodyAnimaux {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #232427;
+}
+
+.bodyAnimaux .containerAnimaux {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux:nth-child(1) .boxAnimaux .contentAnimaux > a {
+  background: #2196f3;
+}
+
+.bodyAnimaux .container .cardAnimaux:nth-child(2) .boxAnimaux .contentAnimaux > a {
+  background: #e91e63;
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux:nth-child(3) .boxAnimaux .contentAnimaux > a {
+  background: #23c186;
+}
+
+.bodyAnimaux .containerAnimaux.cardAnimaux .boxAnimaux {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux:hover {
+  transform: translateY(-50px);
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
+  padding: 20px;
+  text-align: center;
+}
+
+.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux > a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux > a:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
 }

@@ -10,7 +10,13 @@
 <body>
 	<header>
 		<nav>
-			<?php require "includes/partials/navbarNoCo.php"; ?>
+			<?php 
+				if(empty($_SESSION)){
+					require "includes/partials/navbarNoCo.php";
+				}else{
+					require "includes/partials/navbarCo.php";
+				} 
+			?>
 		</nav>
 	</header>
 <main>

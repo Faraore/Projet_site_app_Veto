@@ -1,10 +1,10 @@
 <?php
 
 function getConnection(){
-    $sever = 'localhost';
+    $server = 'localhost';
     $port = '3306';
-    $dbname = 'bdd_petvet';
-    $username = '';
+    $dbname = 'petvet_bdd';
+    $username = 'root';
     $password = '';
 
     $dsn = "mysql:host=$server;port=$port;dbname=$dbname;charset=utf8";

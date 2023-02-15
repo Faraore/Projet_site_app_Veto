@@ -1,28 +1,33 @@
 <?php
 require_once "connexion.php";
-require_once "civilite.php";
-require_once "pays.php";
+
+
 
 class proprietaire{
-    private $c_id;
-    private $c_nom;
-    private $c_prenom;
-    private $c_dateNaissance;
-    private $c_numAdresse;
-    private $c_adresse;
-    private $c_complementAdresse;
-    private $c_civilite;
-    private $c_connexion;
-    private $c_pays;
+    private int $c_id;
+    private string $c_nom;
+    private string $c_prenom;
+    private int $c_numAdresse;
+    private string $c_adresse;
+    private string $c_codePostal;
+    private string $c_ville;
+    private connexion $c_connexion;
     
     
-    public function __construct(string $nom, connexion $connexion){
-        //TODO:recup le dernier id enregistré
+    
+    public function __construct(string $nom ='', string $prenom ='', int $numAdresse = null, string $adresse = '', string $codePostal = '', string $ville = '', connexion $connexion = null){
+        
+        
+        $this->c_prenom = $prenom;
+        $this->c_numAdresse = $numAdresse;
+        $this->c_codePostal = $codePostal;
+        $this->c_adresse = $adresse;
+        $this->c_ville = $ville;
         $this->c_nom = $nom;
         $this->c_connexion = $connexion;      
     }
  
-    public function getcId(): int
+    public function getId(): int
     {
         return $this->c_id;
     }
@@ -58,20 +63,6 @@ class proprietaire{
 
     }
 
-  
-    public function getDateNaissance(): DateTime
-    {
-        return $this->c_dateNaissance;
-    }
-
-   
-    public function setDateNaissance( DateTime $dateNaissance): void
-    {
-        $this->c_dateNaissance = $dateNaissance;
-
-    }
-
-
     public function getNumAdresse(): int
     {
         return $this->c_numAdresse;
@@ -99,16 +90,47 @@ class proprietaire{
     }
 
     
-    public function getComplementAdresse(): string
+    public function getCodePostal(): string
     {
-        return $this->c_complementAdresse;
+        return $this->c_codePostal;
     }
 
     
-    public function setComplementAdresse($complementAdresse): void
+    public function setCodePostal($codePostal): void
     {
-        $this->c_complementAdresse = $complementAdresse;
+        $this->c_codePostal = $codePostal;
 
+    }
+    public function getVille(): string
+    {
+        return $this->c_ville;
+    }
+
+    
+    public function setVille($Ville): void
+    {
+        $this->c_ville = $ville;
+
+    }
+
+    public function setMail(): void
+    {
+        $this->c_connexion->setMail();
+    }
+
+    public function getMail(): string
+    {
+        return $this->c_connexion->getMail();
+    }
+
+    public function getPassword(): string
+    {
+        return $this->c_connexion->getPassword();
+    }
+
+    public function setPassword(): void
+    {
+        $this->c_connexion->setPassword();
     }
 
 }

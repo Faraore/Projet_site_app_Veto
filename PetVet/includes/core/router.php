@@ -35,4 +35,8 @@
             require_once "includes/core/controllers/contact_controller.php";
             break;
         }
+		case 'animaux' :{
+            require_once "includes/core/controllers/animaux_controller.php";
+            break;
+        }
     }

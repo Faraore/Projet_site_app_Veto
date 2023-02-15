@@ -1,2 +1,2 @@
 const btnInscrip = document.querySelector("#btnInscrip");
-console.log(btnInscrip); 
+console.log(btnInscrip);

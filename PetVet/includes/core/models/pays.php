@@ -10,7 +10,7 @@ class pays{
         $this->c_ville = $ville;
         $this->c_id = $id;
 
-}
+    }
     public function getId(): int{
         return $this->c_id;
     }
