@@ -1,31 +1,38 @@
 <?php
+    
+
     switch ($action){
         case 'inscription':{
             require_once "includes/core/models/daoInscription.php";
-
-            require_once "includes/core/views/formInscription.phtml";
-
             if(empty($_POST)){
-                echo('formvide');
+               // echo('formulaire vide');
+                
                 //$unProprietaire = new proprietaire();
             }else{
                 $unProprietaire = new proprietaire(
                     $_POST['champNom'],
+                    $_POST['champPrenom'],
+                    intval($_POST['champNumAdresse']),
+                    $_POST['champNomAdresse'],
+                    intval($_POST['champCodePostal']),
+                    $_POST['champVille'],
                     $uneConnexion = new connexion(
                         $_POST['champEmail'],
                         $_POST['champPassword'])
                     );
                 
-                //doto: message d'erreur si form vide
+                //todo: message d'erreur si form vide
                 if (insertInscription($unProprietaire)){
                     header('Location: index.php');
-                    echo("oki");
+                    
                 }else{
                     $message = "erreur d'enregistrement";
+                    echo($message);
+                    var_dump($_POST);
                 }
             }
-
-
+                
+            require_once "includes/core/views/formInscription.phtml";
             break;
         }
 

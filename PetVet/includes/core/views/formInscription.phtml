@@ -21,10 +21,15 @@
 			<div class="form">
 				<div class ="signup">
 					<div class="heading">Pas encore inscrit ? </div>
-					<form action ="" method = "POST" autocomplete="off">
-						<input type="text" id="champNom" placeholder="Nom">
-						<input type="email" id="champEmail" placeholder="Email">
-						<input type="password" id="champPassword" placeholder="Password">
+					<form action="" method= "post" autocomplete="off">
+						<input type="text" name="champNom" id="champNom" placeholder="Nom">
+						<input type="text" name="champPrenom" id="champPrenom" placeholder="Prenom">
+						<input type="email" name="champEmail" id="champEmail" placeholder="Email">
+						<input type="password" name="champPassword" id="champPassword" placeholder="Password">
+						<input type="number" name="champNumAdresse" id="champNumAdresse" placeholder="Numero d'adresse">
+						<input type="text" name="champNomAdresse" id="champNomAdresse" placeholder="Adresse">
+						<input type="number" name="champCodePostal" id="champCodePostal" placeholder="Code Postal">
+						<input type="text" name="champVille" id="champVille" placeholder="Ville">
 						<button class="buttonForms" id="btnInscrip" type="submit">Inscription</button>
 					</form>
 				</div>
