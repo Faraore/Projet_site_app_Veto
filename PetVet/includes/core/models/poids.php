@@ -8,7 +8,6 @@
         public function __construct(float $poids){
             $this->c_id = 0;
             $this->c_poids = $poids;
-
         }
 
         public function getId(): int{

@@ -59,7 +59,7 @@
         $SQLStmt->bindValue(':poids', $newAnimal->getPoids()->getPoids(),PDO::PARAM_INT);
         
         if(!$SQLStmt->execute()){
-            echo('Erreur sur insert');
+            echo("Erreur sur l'ajout de l'animal");
             $response = false;
         }else{
             $response = true;
@@ -79,7 +79,7 @@
 
 
         if(!$SQLStmt2->execute()){
-            echo('Erreur sur insert');
+            echo("Erreur sur l'ajout de l'animal");
             $response = false;
         }else{
             $response = true;
@@ -92,7 +92,7 @@
     function getAnimalById(int $id): animaux{
         $conn = getConnection();
 
-        $SQLQuery = "SELECT a.id, a.nom, a.date_de_naissance, f.type_animal, f.id as idFamille, s.sexe, s.id as idSexe, pd.poids 
+        $SQLQuery = "SELECT a.id, a.nom, a.date_de_naissance, f.type_animal, f.id as idFamille, s.sexe, s.id as idSexe, pd.id as idPoids, pd.poids
                         FROM animaux a 
                         INNER JOIN proprietaires p on p.id = a.id_proprietaires 
                         INNER JOIN famille f on a.id_famille = f.id 
@@ -117,6 +117,8 @@
                 $unAnimal->setId($SQLRow['id']);
                 $unAnimal->getFamille()->setId($SQLRow['idFamille']);
                 $unAnimal->getSexe()->setId($SQLRow['idSexe']);
+                $unAnimal->getPoids()->setId($SQLRow['idPoids']);
+                
 
         
         $SQLStmt->closeCursor();
@@ -125,7 +127,7 @@
     }
 
 function updateAnimal(animaux $newAnimal): bool{
-    //Optimisation à revoir. Déclencher un update en fonction de ce qui a été modifié.
+    
         $conn = getConnection();
 
 
@@ -143,7 +145,7 @@ function updateAnimal(animaux $newAnimal): bool{
         $SQLStmt->execute();
 
         if(!$SQLStmt->execute()){
-             echo('Erreur sur insert');
+             echo('Erreur de modification');
              $response = false;
         }else{
              $response = true;
@@ -159,7 +161,7 @@ function updateAnimal(animaux $newAnimal): bool{
         $SQLStmt2->execute();
 
         if(!$SQLStmt2->execute()){
-            echo('Erreur sur insert 2');
+            echo('Erreur de modification');
             $response = false;
         }else{
             $response = true;
@@ -169,3 +171,43 @@ function updateAnimal(animaux $newAnimal): bool{
         return $response;
 
     }
+    function deleteAnimal(animaux $unAnimal): bool{
+        //Déclencher un delete 
+            $conn = getConnection();
+
+            $SQLQuery = "DELETE FROM animaux WHERE animaux.id = :id";
+            
+    
+            $SQLStmt = $conn->prepare($SQLQuery);
+
+            
+            $SQLStmt->bindValue(':id', $unAnimal->getId(),PDO::PARAM_INT);
+            $SQLStmt->execute();
+    
+            if(!$SQLStmt->execute()){
+                 echo("Impossible de supprimer l'animal");
+                 $response = false;
+            }else{
+                 $response = true;
+            }
+
+            $SQLQuery2 = "DELETE FROM poids WHERE poids.id = :id";
+    
+            $SQLStmt2 = $conn->prepare($SQLQuery2);
+            
+            $SQLStmt2->bindValue(':id', $unAnimal->getPoids()->getId(), PDO::PARAM_INT);
+            $SQLStmt2->execute();
+    
+            if(!$SQLStmt2->execute()){
+                echo("Impossible de supprimer le poids de l'animal");
+                $response = false;
+            }else{
+                $response = true;
+            }
+
+            $SQLStmt2->closeCursor();
+            return $response;
+    
+           
+    
+        }

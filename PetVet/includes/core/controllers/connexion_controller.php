@@ -16,7 +16,7 @@
                         $_SESSION['id'] = getIdbyMail($mailSaisi);
 
                         print("Authentification reussi");
-                        header("Location: ?page=animaux&action=add");
+                        header("Location: ?page=animaux&action=list");
                     }else{
                         $message ="Information fausse";
                     }
@@ -29,10 +29,12 @@
         }
 
         case 'deconnexion':{
-            if (isset($_SESSION['connexion'])){
-                unset($_SESSION['connexion']);
+            if (isset($_SESSION['mail'])){
+                unset($_SESSION['mail']);
+                unset($_SESSION['id']);
             }
-            header('Location: index.php');
+
+            header('Location: index.php?page=index');
             break;
         }
     

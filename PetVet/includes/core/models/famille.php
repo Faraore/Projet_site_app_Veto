@@ -7,7 +7,7 @@
         //Constructeur de la classe Famille
         public function __construct(string $type =''){
             $this->c_id = 0;
-            $this->c_type = $type;
+            $this->c_type = htmlentities($type);
         }
 
         //Getters & Setters
@@ -28,20 +28,6 @@
 
         public function setType(string $type): void
         {
-           $this->c_type = $type;
+           $this->c_type = htmlentities($type);
         }
-
-        /* TODO - Hors MVP(Produit minimum viable)
-        public function getRace(): string{
-            return $this->c_race;
-        }
-        public function setRace(string $race): void{
-           $this->c_race = $race;
-        }*/
-        
-
-
-
-
-
     }

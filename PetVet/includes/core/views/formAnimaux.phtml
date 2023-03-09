@@ -9,14 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="public/styles/style.css" type="text/css"/>
 
-    <title>formAnimaux</title>
+    <title>Ajouter un nouvel animal</title>
 </head>
 <body>
 <header>
-		<nav>
-		<?php require "includes/partials/navbarCo.php"; ?>
-		</nav>
-	</header>
+	<nav>
+		<?php 
+			require "includes/partials/navbarCo.php"; 
+		?>
+	</nav>
+</header>
 	<main>
 		<div class="forms">
 			<div class="form">
@@ -24,7 +26,7 @@
 					<div class="heading">Ajouter un animal </div>
 					<form action="" method= "post" autocomplete="off">
 						<label  for="champFamille">Famille de l'animal</label>
-                        <select name= "champFamille" id="champFamille">
+                        <select name= "champFamille" id="champFamille"required="required">
                             <option value="0">Sélectionner</option>
                             <?php
 								foreach($lesFamilles as $famille){
@@ -37,9 +39,9 @@
 								}
                             ?>
                         </select>
-						<input type="text" name="champNom" id="champNom" placeholder="Nom">
+						<input type="text" name="champNom" id="champNom" placeholder="Nom"required="required">
                         <label  for="champSexe">Sexe de l'animal</label>
-                        <select name= "champSexe" id="champSexe">
+                        <select name= "champSexe" id="champSexe"required="required">
                             <option value="0">Sélectionner</option>
                             <?php
 								foreach($lesSexes as $sexe){
@@ -51,8 +53,8 @@
 								}
                             ?>
                         </select>
-						<input type="date" name="champDateNaissance" id="champDateNaissance" placeholder="Date de Naissance">
-						<input type="int" name="champPoids" id="champPoids" placeholder="Poids">
+						<input type="date" name="champDateNaissance" id="champDateNaissance" placeholder="Date de Naissance"required="required">
+						<input type="int" name="champPoids" id="champPoids" placeholder="Poids" required="required">
 					    <button class="buttonForms" id="btnInscrip" type="submit">Ajouter</button>
 					</form>
 				</div>
@@ -61,4 +63,5 @@
 	</main>
     
 </body>
+
 </html>

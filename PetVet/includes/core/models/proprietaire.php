@@ -15,15 +15,16 @@ class proprietaire{
     
     
     
-    public function __construct(string $nom ='', string $prenom ='', int $numAdresse = null, string $adresse = '', string $codePostal = '', string $ville = '', connexion $connexion = null){
+    public function __construct(string $nom ='', string $prenom ='', int $numAdresse = null, 
+    string $adresse = '', string $codePostal = '', string $ville = '', connexion $connexion = null){
         
         
-        $this->c_prenom = $prenom;
+        $this->c_prenom = htmentities($prenom);
         $this->c_numAdresse = $numAdresse;
         $this->c_codePostal = $codePostal;
-        $this->c_adresse = $adresse;
-        $this->c_ville = $ville;
-        $this->c_nom = $nom;
+        $this->c_adresse = htmlentities($adresse);
+        $this->c_ville = htmlentities($ville);
+        $this->c_nom = htmlentities($nom);
         $this->c_connexion = $connexion;      
     }
  
@@ -46,7 +47,7 @@ class proprietaire{
 
     public function setNom( string $nom): void
     {
-        $this->c_nom = $nom;
+        $this->c_nom = htmlentities($nom);
 
     }
 
@@ -59,7 +60,7 @@ class proprietaire{
     
     public function setPrenom(string $prenom): void
     {
-        $this->c_prenom = $prenom;
+        $this->c_prenom = htmlentities($prenom);
 
     }
 
@@ -85,7 +86,7 @@ class proprietaire{
     
     public function setAdresse(string $adresse):void
     {
-        $this->c_adresse = $adresse;
+        $this->c_adresse = htmlentities($adresse);
 
     }
 
@@ -98,7 +99,7 @@ class proprietaire{
     
     public function setCodePostal($codePostal): void
     {
-        $this->c_codePostal = $codePostal;
+        $this->c_codePostal = htmlentities($codePostal);
 
     }
     public function getVille(): string
@@ -109,7 +110,7 @@ class proprietaire{
     
     public function setVille($Ville): void
     {
-        $this->c_ville = $ville;
+        $this->c_ville = htmlentities($ville);
 
     }
 

@@ -1,0 +1,105 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.5552024,
+                44.8599554
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "9h00 - 18h30",
+                "description": "Cabinet Vétérinaire.",
+                "name": "Cabinet Vétérinaire Argos",
+                "phone": "05 33 09 77 07",
+                "storeid": "01"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.5749479,
+                44.8537434
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "8h00 - 19h00",
+                "description": "Clinique véterinaire.",
+                "name": "Clinique Urbiveto du Dr Lavalette",
+                "phone": "05 56 52 05 55",
+                "storeid": "02"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.5952172,
+                    44.8206948
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "9h00 - 19h00",
+                "description": " Clinique Vétérinaire",
+                "name": "Vetocare",
+                "phone": "05 33 89 10 60",
+                "storeid": "03"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.6707149,
+                44.8433959
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "8h30 - 12h00 et 14h00 - 18h30 ",
+                "description": "Cabinet Vétérinaire.",
+                "name": "Atout Véto",
+                "phone": "05 33 09 72 70",
+                "storeid": "04"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.6373078,
+                44.8347512
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "09h00 - 18h00",
+                "description": "spésialiste felin",
+                "name": "Cabinet Vét. Médico-Chirurgical Félin",
+                "phone": "05 56 55 16 28",
+                "storeid": "05"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.6577869,
+                44.8667366
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "véterinaire",
+                "hours": "24h/24h",
+                "description": "clinique véterinaire pire que des michto",
+                "name": "Centre Hospitalier Vétérinaire Aquivet",
+                "phone": "05 56 95 01 01",
+                "storeid": "06"
+            }
+        }]
+}

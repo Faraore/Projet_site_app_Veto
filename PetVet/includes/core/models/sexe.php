@@ -8,7 +8,7 @@
         public function __construct(string $sexe)
         {
             $this->c_id = 0;
-            $this->c_sexe = $sexe;
+            $this->c_sexe = htmlentities($sexe);
         }
     
         //Getters & Setters
@@ -26,7 +26,7 @@
         }
         public function setSexe( string $sexe ): void
         {
-            $this->c_sexe = $sexe;
+            $this->c_sexe = htmlentities($sexe);
         }
 
     }

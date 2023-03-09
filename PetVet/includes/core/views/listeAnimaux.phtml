@@ -1,67 +1,60 @@
+<?php
+	ini_set('display_errors', 'on');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/styles/style.css" type="text/css" />
-	<title>Document</title>
-</head>
-	<nav>
-		<?php require "includes/partials/navbarCo.php"; ?>
-	</nav>
-<body>
-    <main class="bodyAnimaux">
-        <header>
-           <!-- <h1>Bonjour prenom de mon proprietaire connecter</h1>-->
-        </header>
-        <?php
-			if (isset($_SESSION['login']) && $_SESSION['login'] != ''){
-				print('<a href="index.php?page=animaux&action=add">Ajouter un Animal</a>');
-			}
-		?>
-        <table>
-			<div class="containerAnimaux">
-				<div class="cardAnimaux">
-					<div class="boxAnimaux">
-						<div class="contentAnimaux">
-							<thead>
-								<th>Famille:</th> 
-								<th>Sexe:</th>
-								<th>Nom:</th>
-								<th>Né(e) le :</th>
-								<th>Poids:</th>
-								
-							</thead>
-							<tbody>
-								<?php
-									foreach ($lesAnimaux as $unAnimal) {
-										print('<tr>');
-										print('<td>'.$unAnimal->getFamille()->getType().'</td>');
-										print('<td>'.$unAnimal->getNom().'</td>');
-										print('<td>'.$unAnimal->getDateNaissance()->format('d/m/Y').'</td>');
-										print('<td>'.$unAnimal->getPoids()->getPoids().'</td>');
-										print('<td><a href="index.php?page=animaux&action=add&id='.$unAnimal->getId().'">Ajouter</a></td>');
-										print('<td><a href="index.php?page=animaux&action=edit&id='.$unAnimal->getId().'">Modifier</a></td>');
-										print('<td><a href="index.php?page=animaux&action=delete&id='.$unAnimal->getId().'">Supprimer</a></td>');
-										print('</tr>');
+    <link rel="stylesheet" href="public/styles/style.css" type="text/css"/>
 
-									}
-								?>
-							</tbody>
-						</div>
+	<title>Vos animaux</title>
+</head>
+<body>
+    <header>
+		<nav>
+			<?php require "includes/partials/navbarCo.php"; ?>
+		</nav>
+    </header>
+	<main>
+		<div class="containerAnimaux">
+			<div class="cardAnimaux">
+				<div class="boxAnimaux">
+					<div class="contentAnimaux">
+						<a class="listButton" href="index.php?page=animaux&action=add">Ajouter un animal</a>
 					</div>
 				</div>
 			</div>
-		</table>
+		<?php
+			foreach ($lesAnimaux as $unAnimal) {
+				?>
+				<div class="cardAnimaux">
+					<div class="boxAnimaux">
+						<div class="contentAnimaux">
+							<h3><?=$unAnimal->getNom()?></h3>
+							<p>Famille : <?= $unAnimal->getFamille()->getType()?></p>
+							<p>Sexe : <?= $unAnimal->getSexe()->getSexe()?></p>
+							<p>Né(e) le : <?=$unAnimal->getDateNaissance()->format('d/m/Y')?></p>
+							<p>Poids : <?=$unAnimal->getPoids()->getPoids()?> kg</p>
+
+							
+							<button class="listButton" href="index.php?page=animaux&action=edit&id=<?=$unAnimal->getId()?>">Modifier</button>
+							<button class="listButton deleteAnimalBtn" form=<?=$unAnimal->getId()?>>Supprimer</button>
+						</div>
+					</div>
+				</div>
+		<?php
+			}
+		?>
+		</div>
 		
     </main>
 	<footer>
         <?php
         require "includes/partials/footer.php";
         ?>
-
     </footer>
-    
 </body>
+<script type="text/javascript" src="public/scripts/scriptFormAnimaux.js"></script>
 </html>

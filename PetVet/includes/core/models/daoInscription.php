@@ -5,15 +5,7 @@
     require_once "includes/core/models/proprietaire.php";
 
 
-    /*function getUser() : array{
-        $conn = getConnection();
-        $response = false;
-
-        $SQLQuery = "SELECT p.id, p.nom, p.prenom, p.date_naissance, p.numero_rue, p.nom_rue, p.taille, p.poids, p.complement_adresse ,
-				civ.libelle_court, civ.libelle_long, cpv.codepostal, cpv.ville 
-			FROM proprietaire p INNER JOIN civilite civ ON p.id_civilite = civ.id
-				INNER JOIN cp_ville cpv ON p.id_cp_ville = cpv.id;";
-    }*/
+   
 
     function insertInscription(proprietaire $newProprietaire) : bool{
         $conn = getConnection();
@@ -50,7 +42,7 @@
         $SQLStmt2->bindValue(':ville',$newProprietaire->getVille(),PDO::PARAM_STR);
         
         if(!$SQLStmt2->execute()){
-            echo('Erreur sur le 2eme insert');
+            echo("Erreur sur l'inscription");
             $response = false;
         }else{
             $response = true;

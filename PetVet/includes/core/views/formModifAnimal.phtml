@@ -30,7 +30,6 @@
 								foreach($lesFamilles as $famille){
 									if($famille->getId() == $unAnimal->getFamille()->getId()){
 										print('<option value="'.$famille->getId().'" selected>'.$famille->getType().'</option>');
-										 
 									}else{
 										print('<option value="'.$famille->getId().'">'.$famille->getType().'</option>');
 									}

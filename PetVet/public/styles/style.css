@@ -2,11 +2,20 @@
   font-family: 'Bubble';
   src: url('../font/BubbleShine.ttf');
 }
-@media (max-width:720px)
-{
-    /*-----------------------------menu burger---------------------------------------*/
+/*-----------------------------reset------------------------------------------*/
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
 }
-@media(min-width:720px)
+/*-------------------------variable----------------------------------------*/
+:root{
+  --bg-primary: rgba(6, 156, 167, 0.850);
+  --menu-color: rgba(6, 156, 167, 1);
+  --fontColor: rgba(0, 0, 0, 1);
+}
+@media screen and (min-width:640px)
 {  
   /*--------reset all ------------------------------------------*/
   *{
@@ -15,44 +24,56 @@
     text-decoration: none;
     list-style-type: none;
   }
-  /*-------------------------variable----------------------------------------*/
-  :root{
-    --bg-primary: rgba(6, 156, 167, 0.850);
-    --fontColor: rgba(0, 0, 0, 1);
+
+  body{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
   }
   /*--------------- style de mon header ------------*/
   body > header{
-    width: 100%;
+    width: 100vw;
     background-color: var(--bg-primary);
   }
 
-  /*-------------------navBarNoCo---------------------------------------------------*/
+  /*-------------------navBarNoCo&Co---------------------------------------------------*/
 
   body > header > nav {
-    width: 100%;
-    height:8vh;
-    font-size: 1.8vw;
+    width: 100vw;
+    height: 10vh;
+    font-size: 5%;
     display:flex;
     justify-content: center;
     align-items: center;
   }
-  .logo{
-    width: 8%;
-    padding-right:4%;
-    padding-bottom: 0.5%;
+  .logo_img{
+    width: 7vw;
   }
-  body > header > nav > a{
+  body > header > nav > .menu_burger {
+    display: flex;
+  }
+  body > header > nav > .menu_burger > .menu {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left:15%;
+  }
+  body > header > nav > .menu_burger > .menu > a{
     font-family: 'Bubble', sans-serif;
-    margin: 1%;
+    font-size: 2vw;
+    white-space: nowrap;
+    margin: 3%;
     text-transform:uppercase;
     font-weight: bold;
     color: var(--fontColor);
   }
-  body > header > nav > a:hover{
+  a:hover{
     color: rgba(4, 118, 126, 0.85);
   }
-  /*----------------------main----------------------------------------------*/
 
+  label, #toggle{
+    display:none;
+  }
   /*----------------------cardAccueilStyle-----------------------------------------*/
   body > main > article {
     margin: 0;
@@ -118,6 +139,7 @@
     background-color: var(--bg-primary);
     height: 20%;
     padding-top:3%;
+    margin-top:auto;
   }
   body > footer > .main{
     display:flex;
@@ -233,57 +255,37 @@
     text-align: center;
     color: green;
   }
-}
-/*-----------------------------------------card liste Animaux----------------------------------------------------------------------------*/
+  /*-----------------------------------------card liste Animaux----------------------------------------------------------------------------*/
 
-/*.bodyAnimaux {
+body .containerAnimaux {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 100vh;
-  background: #232427;
+  max-width: 100vw;
+  margin: 3% 0;
+  font-family:'Bubble', sans-serif;
 }
 
-.bodyAnimaux .containerAnimaux {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 40px 0;
-}
-
-.bodyAnimaux .containerAnimaux .cardAnimaux {
+body .containerAnimaux .cardAnimaux {
   position: relative;
-  min-width: 320px;
-  height: 440px;
+  min-width: 17vw;
+  height: 45vh;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  margin: 30px;
+  margin: 2.5%;
   transition: 0.5s;
 }
 
-.bodyAnimaux .containerAnimaux .cardAnimaux:nth-child(1) .boxAnimaux .contentAnimaux > a {
-  background: #2196f3;
-}
 
-.bodyAnimaux .container .cardAnimaux:nth-child(2) .boxAnimaux .contentAnimaux > a {
-  background: #e91e63;
-}
-
-.bodyAnimaux .containerAnimaux .cardAnimaux:nth-child(3) .boxAnimaux .contentAnimaux > a {
-  background: #23c186;
-}
-
-.bodyAnimaux .containerAnimaux.cardAnimaux .boxAnimaux {
+body .containerAnimaux .cardAnimaux .boxAnimaux {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
   background: #2a2b2f;
   border-radius: 15px;
   display: flex;
@@ -293,11 +295,11 @@
   transition: 0.5s;
 }
 
-.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux:hover {
+body .containerAnimaux .cardAnimaux .boxAnimaux:hover {
   transform: translateY(-50px);
 }
 
-.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux:before {
+body .containerAnimaux .cardAnimaux .boxAnimaux:before {
   content: "";
   position: absolute;
   top: 0;
@@ -307,25 +309,51 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
-.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
-  padding: 20px;
+body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
+  padding: 5%;
   text-align: center;
 }
 
-.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux > a {
+body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux h3 {
+  font-size: 2.4vw;
+  color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  margin-bottom: 2%;
+}
+
+
+body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux p {
+  font-size: 1.3vw;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton {
   position: relative;
+    font-family:'Bubble', sans-serif;
+  font-size: 1.3vw;
   display: inline-block;
-  padding: 8px 20px;
+  padding: 1.4vh 1vw;
   background: black;
   border-radius: 5px;
   text-decoration: none;
   color: white;
-  margin-top: 20px;
+  margin-top: 10%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
 }
-.bodyAnimaux .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux > a:hover {
+body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   background: #fff;
   color: #000;
+}
+
+/*-----------------------------------------css carteVeto------------------------------------------------------*/
+
+#map {
+  height: 100%;
+}
 }

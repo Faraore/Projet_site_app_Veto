@@ -5,9 +5,6 @@
         case 'inscription':{
             require_once "includes/core/models/daoInscription.php";
             if(empty($_POST)){
-               // echo('formulaire vide');
-                
-                //$unProprietaire = new proprietaire();
             }else{
                 $unProprietaire = new proprietaire(
                     $_POST['champNom'],
@@ -21,7 +18,7 @@
                         $_POST['champPassword'])
                     );
                 
-                //todo: message d'erreur si form vide
+                
                 if (insertInscription($unProprietaire)){
                     header('Location: index.php');
                     
@@ -43,13 +40,7 @@
 
         }
 
-        case 'deconnexion':{
-            if (isset($_SESSION['login'])){
-                unset($_SESSION['login']);
-            }
-            header('Location: index.php');
-            break;
-        }
+        
     
         default:{
     
