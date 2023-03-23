@@ -13,7 +13,7 @@ function getConnection(){
 			$retVal = new PDO($dsn, $username, $password);
 		}catch(PDOException $ex){
 			print('Pas possible de se connecter !!!');
-			die();
+			
 		}
 		return $retVal;
 	}

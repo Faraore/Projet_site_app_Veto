@@ -1,6 +1,6 @@
 <?php
     require_once "includes/core/models/bdd.php";
-
+    // permet de verifier q'un mail existe au sein de ma bdd et qu'il soit uniqye 
     function mailExists($mail): bool{
         $conn = getConnection();
 
@@ -23,6 +23,7 @@
             return false;
         }
     }
+    // recupere le mail via id 
     function getIdbyMail(string $mail): int{
         $conn = getConnection();
 
@@ -40,7 +41,7 @@
         return ($idUser);
 
     }
-
+    // compare le password rentré a celui dans la bdd 
     function checkCo($mail, $password): bool{
         $conn = getConnection();
 
@@ -56,7 +57,7 @@
 		$passwordStocke = $SQLRow['password'];
 
         $SQLStmt->closeCursor();
-
+        //password_verify => verifie si le pwd haché est bien le pwd donné 
         return (password_verify($password, $passwordStocke));
 
 

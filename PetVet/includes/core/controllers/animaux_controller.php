@@ -1,6 +1,7 @@
 <?php
     switch ($action){
         case 'list' :{
+            // affiche les animaux du proprietaire via le mail de connexion 
             if(!isset($_SESSION['mail'])){
                 header('Location: index.php?page=connexion&action=connexion');
             }else{
@@ -28,10 +29,12 @@
             require_once "includes/core/models/daoPoids.php";
            
             $unAnimal = getAnimalById($_GET['id']);
+           
             
             if(empty($_POST)){
-                //j'arrive sur le form animaux
+                
                 $unAnimal;
+                
            }else{
             //je viens de valider le form cliqué sur modifier
                 $unAnimal->setNom($_POST['champNom']);
@@ -53,6 +56,7 @@
             $lesSexes = getAllSexes();
             require_once "includes/core/views/formModifAnimal.phtml";
 			break;
+            
 		}
 		case 'delete':{
             
@@ -77,9 +81,9 @@
             require_once "includes/core/models/daoSexe.php";
             require_once "includes/core/models/daoPoids.php";
 
-            //var_dump($_SESSION);
+            
             if(empty($_POST)){
-                    //j'arrive sur le form animaux
+                    
                     $unAnimal = new animaux();
             }else{
                 //je viens de valider le form cliqué sur submit

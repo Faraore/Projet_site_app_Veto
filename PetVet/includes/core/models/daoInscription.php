@@ -12,9 +12,9 @@
 
         if(mailExists($newProprietaire->getMail())){
             return false;
-            exit();
+            
         }
-        //fonction qui me permet d'insert dans ma bdd en vue de crée mon nvl user
+        //fonction qui me permet d'insert dans ma bdd en vue de crée un nouveaux proprietaire
         $SQLQuery = "INSERT INTO connexion(mail, password) 
                      VALUES(:mail,:password)";
 

@@ -23,9 +23,8 @@
                     header('Location: index.php');
                     
                 }else{
-                    $message = "erreur d'enregistrement";
-                    echo($message);
-                    var_dump($_POST);
+                    $message = "Mail déja existant";
+                   
                 }
             }
                 

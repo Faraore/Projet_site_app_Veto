@@ -9,7 +9,6 @@
                 //var_dump($_POST);
 
                 if(mailExists($mailSaisi)){
-                    print('Mail existant');
                     if(checkCo($mailSaisi, $passwordSaisi)){
 
                         $_SESSION['mail'] = $mailSaisi;
@@ -21,7 +20,7 @@
                         $message ="Information fausse";
                     }
                 }else{
-                    $message = "Utilisateur inexistant";
+                    $message = "Utilisateur inexistant ou Erreur password";
                 }
             }
             require_once "includes/core/views/formConnexion.phtml";

@@ -39,7 +39,4 @@
             require_once "includes/core/controllers/animaux_controller.php";
             break;
         }
-        case 'veterinaire' :{
-          require_once "includes/core/controllers/veto_controlleur.php";
-        }
     }

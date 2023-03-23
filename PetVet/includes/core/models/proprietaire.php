@@ -19,7 +19,7 @@ class proprietaire{
     string $adresse = '', string $codePostal = '', string $ville = '', connexion $connexion = null){
         
         
-        $this->c_prenom = htmentities($prenom);
+        $this->c_prenom = htmlentities($prenom);
         $this->c_numAdresse = $numAdresse;
         $this->c_codePostal = $codePostal;
         $this->c_adresse = htmlentities($adresse);

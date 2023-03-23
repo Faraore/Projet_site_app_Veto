@@ -88,7 +88,7 @@
          return $response;
 
     }
-
+    //recuperation d'un animal via son id 
     function getAnimalById(int $id): animaux{
         $conn = getConnection();
 
@@ -125,7 +125,8 @@
             
 		return $unAnimal;
     }
-
+// function qui me permet de modifier un animal dans ma bdd 
+// on prepare plusieur requetes car il y a plusieur tables a modif dans la bdd 
 function updateAnimal(animaux $newAnimal): bool{
     
         $conn = getConnection();
