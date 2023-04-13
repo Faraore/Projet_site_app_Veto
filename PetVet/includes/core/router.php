@@ -39,4 +39,9 @@
             require_once "includes/core/controllers/animaux_controller.php";
             break;
         }
+        case 'infosUtile':{
+            require_once "includes/core/controllers/infosUtile_controlleur.php";
+            
+            break;
+        }
     }

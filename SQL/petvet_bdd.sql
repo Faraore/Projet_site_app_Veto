@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 23 mars 2023 à 15:11
+-- Généré le : jeu. 13 avr. 2023 à 16:49
 -- Version du serveur : 5.7.17
 -- Version de PHP : 8.0.15
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `petvet_bdd`
 --
-CREATE DATABASE IF NOT EXISTS `petvet_bdd` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `petvet_bdd`;
 
 -- --------------------------------------------------------
 
@@ -47,7 +45,7 @@ CREATE TABLE `animaux` (
 
 INSERT INTO `animaux` (`id`, `nom`, `date_de_naissance`, `date_de_deces`, `id_proprietaires`, `id_famille`, `id_veterinaires`, `id_sexe_des_animaux`, `id_poids`) VALUES
 (1, 'Simba', '2021-05-15', NULL, 7, 2, NULL, 1, 1),
-(24, '^po^po', '2023-03-09', NULL, 8, 2, NULL, 1, 24);
+(24, 'pumba', '2023-03-09', NULL, 8, 2, NULL, 1, 24);
 
 -- --------------------------------------------------------
 
@@ -68,7 +66,7 @@ CREATE TABLE `connexion` (
 
 INSERT INTO `connexion` (`id`, `mail`, `password`, `question_secrete`) VALUES
 (7, 'test@test.fr', '$2y$10$mTclxa//FG3EHLe3IMfNM.k9CI9RST8pPIrm2xMrlkl3uMKb7hqvS', NULL),
-(8, 'ballet.bryan4@gmail.com', '$2y$10$h4WHaDx2JPQbcvBZvpbGXuLy0/z/Me/QfIup4HgEU8gj.zyaCgBZG', NULL),
+(8, 'ballet.bryan5@gmail.com', '$2y$10$h4WHaDx2JPQbcvBZvpbGXuLy0/z/Me/QfIup4HgEU8gj.zyaCgBZG', NULL),
 (9, 'pou@pou.fr', '$2y$10$syBXpVLx540WBv4L54BvjuTWrn3JlC36rQUdpTmkiTqUvrlpwAKke', NULL);
 
 -- --------------------------------------------------------
@@ -130,21 +128,19 @@ CREATE TABLE `proprietaires` (
   `prenom` varchar(200) NOT NULL,
   `numero_adresse` int(11) NOT NULL,
   `nom_adresse` varchar(250) NOT NULL,
-  `complement_adresse` varchar(250) DEFAULT NULL,
-  `telephone` int(10) DEFAULT NULL,
   `id_connexion` int(11) NOT NULL,
   `codePostal` varchar(5) NOT NULL,
-  `ville` varchar(255) NOT NULL
+  `ville` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `proprietaires`
 --
 
-INSERT INTO `proprietaires` (`id`, `nom`, `prenom`, `numero_adresse`, `nom_adresse`, `complement_adresse`, `telephone`, `id_connexion`, `codePostal`, `ville`) VALUES
-(7, 'test', 'test', 12, 'Rue de roses', NULL, NULL, 7, '55555', 'Fleurs'),
-(8, 'b', 'bryan', 102, 'Avenue de la libération', NULL, NULL, 8, '33700', 'MERIGNAC'),
-(9, 'poupou', 'pou', 1, 'poupou', NULL, NULL, 9, '0', 'poupou');
+INSERT INTO `proprietaires` (`id`, `nom`, `prenom`, `numero_adresse`, `nom_adresse`, `id_connexion`, `codePostal`, `ville`) VALUES
+(7, 'test', 'test', 12, 'Rue de roses', 7, '55555', 'Fleurs'),
+(8, 'b', 'bryan', 106, 'Avenue de la liberation', 8, '33700', 'MERIGNAC'),
+(9, 'poupou', 'pou', 1, 'poupou', 9, '0', 'poupou');
 
 -- --------------------------------------------------------
 
@@ -188,7 +184,6 @@ CREATE TABLE `veterinaires` (
   `prenom` varchar(200) NOT NULL,
   `numero_adresse` varchar(50) NOT NULL,
   `nom_adresse` varchar(200) NOT NULL,
-  `complement_adresse` varchar(50) DEFAULT NULL,
   `telephone` int(10) NOT NULL,
   `id_specialite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

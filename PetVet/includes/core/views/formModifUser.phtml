@@ -1,0 +1,52 @@
+<?php
+	ini_set('display_errors', 'on');
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<?php require_once "includes/partials/page_head.php"; ?>
+    <title>PetVet - Vos Informations</title>
+</head>
+<body>
+	<header>
+		<nav>
+		<?php 
+			if(empty($_SESSION)){
+				require "includes/partials/navbarNoCo.php";
+			}else{
+				require "includes/partials/navbarCo.php";
+			}
+		?>
+		</nav>
+	</header>
+	<main>
+		<div class="forms">
+			<div class="form">
+				<div class ="signup">
+					<div class="heading">Vos Informations </div>
+					<form action="" method= "post" autocomplete="off">
+						<input type="text" name="champNom" id="champNom" value="<?= $unUser->getNom() ?>">
+						<input type="text" name="champPrenom" id="champPrenom" value="<?= $unUser->getPrenom() ?>">
+						<input type="email" name="champEmail" id="champEmail" value="<?= $unUser->getConnexion()->getMail() ?>">
+						<input type="number" name="champNumAdresse" id="champNumAdresse" value="<?= $unUser->getNumAdresse() ?>">
+						<input type="text" name="champNomAdresse" id="champNomAdresse" value="<?= $unUser->getAdresse() ?>">
+						<input type="text" name="champCodePostal" id="champCodePostal" value="<?= $unUser->getCodePostal() ?>">
+						<input type="text" name="champVille" id="champVille" value="<?= $unUser->getVille() ?>">
+						<button class="buttonForms" id="btnInscrip" type="submit">Mettre à jour vos informations</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+
+    
+</body>
+<script src="../../../public/scripts/script.js"></script>
+</html>
+  
+
+
+	
+
+

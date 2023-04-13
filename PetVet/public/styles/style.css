@@ -2,110 +2,389 @@
   font-family: 'Bubble';
   src: url('../font/BubbleShine.ttf');
 }
+@font-face {
+  font-family: 'Mochi';
+  src: url('../font/MochiyPopOne-Regular.ttf');
+}
+:root{
+  --bg-primary: rgba(6, 156, 167, 0.850);
+  --fontColor: rgba(0, 0, 0, 1);
+}
+/*------------------------------------------CSS Mobile------------------------------------------------*/
 @media (max-width:720px)
 {
-    /*-----------------------------reset------------------------------------------*/
-    *{
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
-      list-style-type: none;
-    }
-    /*-----------------------------menu burger---------------------------------------*/
-
-    /*-----------------------------card accueil---------------------------------------------*/
-    body > main > article {
-      margin: 0;
-      color: var(--fontColor);
-    }
-    .containerCard{
-      display: flex;
-      margin-left: 15%;
-      margin-right: 15%;
-      margin-top : 4%;
-      margin-bottom : 4%;
-      width: 70%;
-    }
-    .card {
-      margin: 10px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      width: 25%;
-    }
-    .card-header img {
-      width: 100%;
-      object-fit: cover;
-    }
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 15px;
-      min-height: 250px;
-    }
-    .tag {
-      background: #cccccc;
-      border-radius: 50px;
-      font-size: 1.2vw;
-      color: #fff;
-      padding: 4px 20px;
-      text-transform: uppercase;
-      text-align: center;
-  
-    }
-    .tagCompagnon {
-      background-color: #47bcd4;
-    }
-    .tagSuivi {
-      background-color: #5e76bf;
-    }
-    .tagAgenda {
-      background-color: #e3309c;
-    }
-    .tagVeto{
-      background-color: rgba(41, 171, 121, 1);
-    }
-    .card-body > p {
-      font-size: 1vw;
-      margin: 10%;
-    }
-    /*---------------------------logo----------------------------------------------*/
-    .logo{
-      width: 30vw;
-      justify-content: center;
-    }
-}
-@media(min-width:720px)
-{  
-  /*--------reset all ------------------------------------------*/
+  /*-----------------------------Reset------------------------------------------*/
   *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style-type: none;
   }
-  /*-------------------------variable----------------------------------------*/
-  :root{
-    --bg-primary: rgba(6, 156, 167, 0.850);
-    --fontColor: rgba(0, 0, 0, 1);
+  body{
+    width: 100vw;
+  }
+  /*------------------------------------- Header------------------------------------*/
+  body > header{
+    width: 100vw;
+    background-color: var(--bg-primary);
+  }
+  /*-------------------Barre de navigation---------------------------------------------------*/
+  body > header > nav {
+    width: 100vw;
+    height:7vh;
+    font-size: 3vw;
+    display:flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo{
+    width: 15vw;
+  }
+  body > header > nav > a{
+    font-family: 'Bubble', sans-serif;
+    margin: 1%;
+    text-transform:uppercase;
+    font-weight: bold;
+    color: var(--fontColor);
+  }
+  body > header > nav > a:hover{
+    color: rgba(4, 118, 126, 0.85);
+  }
+/*----------------------Page d'Accueil-----------------------------------------*/
+  body > main > article {
+    margin: 0;
+    color: var(--fontColor);
+  }
+  .containerCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top : 4%;
+    margin-bottom : 4%;
+    width: 100%;
+  }
+  .card {
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 40%;
+  }
+  .card-header img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  .tag {
+    background: #cccccc;
+    border-radius: 50px;
+    font-size: 1.2vw;
+    color: #fff;
+    padding: 4px 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+  .tagCompagnon {
+    background-color: #47bcd4;
+  }
+  .tagSuivi {
+    background-color: #5e76bf;
+  }
+  .tagAgenda {
+    background-color: #e3309c;
+  }
+  .tagVeto{
+    background-color: rgba(41, 171, 121, 1);
+  }
+  .card-body > p {
+    font-size: 1.5vw;
+    margin-left: 5%;
+  }
+ 
+/*----------------------------Page Connexion | Inscription | Modification Animaux & User---------------------------*/
+  form, .form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .forms {
+    width: 75%;
+    min-height: 93vh;
+    background: rgb(228, 227, 227);
+    box-shadow: .5em 0px 0px 0 rgba(rgb(34, 33, 33), 0.2);
+    font-family: "Source Sans Pro", sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form {
+    width: 80%;
+  }
+  .heading {
+    font-size: 1.9vw;
+    height: 40%;
+    text-align: center;
+    color: green;
+  }
+  .signup{
+      width:80%
+  }
+  .login{
+      width:80%;
+  }
+  form {
+    width: 100%;
+  }  
+  input, textarea {
+    width: 80%;
+    border: 0;
+    padding: 2%;
+    border-bottom: 2px solid rgba(128, 127, 127, 1);
+    font-size: 1vw;
+    font-weight: 300;
+    color: rgb(99, 99, 99);
+    letter-spacing: 0.11em;
+    margin:3%;
+  }
+  input:focus {
+    outline: 0;
+    border-bottom: 1px solid rgba(darkgreen, 0.7);
+    transition: 0.6s all ease; 
+  }
+  .buttonForms {
+    width: 90%;
+    margin-top: 5%;
+    padding:2%;
+    border-radius: .5em;
+    border: 0;
+    outline: 0;
+    color: white;
+    font-size: 1.8vw;
+    font-weight: 400;
+    z-index: 3;
+    background: #00B98C;
+    font-family: "Source Sans Pro", sans-serif;
+    cursor: pointer;
   }
 
+  .buttonForms:hover{
+    background: #036e53;
+  }
+
+  /*----------------------------Page Contact----------------------------------------*/
+
+  .forms-contact{
+    width: 75%;
+    height: 93vh;
+    background: rgba(228, 227, 227, 1);
+    box-shadow: .5em 0px 0px 0 rgba(rgb(34, 33, 33), 0.2);
+    font-family: "Source Sans Pro", sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .contact{
+    width:60%;
+    margin-top: 20%;
+  }
+  textarea{
+    height:15vw;
+  }
+  .heading-contact{
+    font-size: 1.9vw;
+    text-align: center;
+    color: green;
+  }
+
+/*-----------------------------------------Affichage des animaux--------------------------------------------*/
+
+  body .containerAnimaux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    min-height: 80vh;
+    margin: 3% 0;
+    font-family:'Mochi', sans-serif;
+  }
+
+  body .containerAnimaux .cardAnimaux {
+    position: relative;
+    min-width: 25vw;
+    height: 25vh;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+      inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+      5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 2.5%;
+    transition: 0.5s;
+  }
+
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    background: #2a2b2f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux:hover {
+  transform: translateY(-50px);
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
+    padding: 5%;
+    text-align: center;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux h3 {
+    font-size: 2.4vw;
+    color: #fff;
+    z-index: 1;
+    transition: 0.5s;
+    margin-bottom: 2%;
+  }
+
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux p {
+    font-size: 1.3vw;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    transition: 0.5s;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton {
+    position: relative;
+    font-family:'Mochi', sans-serif;
+    font-size: 1.3vw;
+    display: inline-block;
+    padding: 1.4vh 1vw;
+    background: black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 10%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
+  }
+
+  /*-----------------------------------------Page Infos Utiles------------------------------------------------------*/
+  .infosContainer {
+    font-family:'Mochi', sans-serif;
+    font-size: 1vw;
+    display:block;
+    max-width: 100%;
+  }
+  .infosContainer > h2 {
+    text-align: center;
+    font-size: 1.8vw;
+    color: rgba(255, 38, 0, 1);
+  }
+  .urgenceVeto {
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    color: red;
+  }
+  .urgenceVeto > article {
+    padding: 10px;
+    border: solid 3px;
+  }
+  .infosPoison,  .urgenceChat, .urgenceChien {
+    display: block;
+    justify-content: space-around;
+    padding: 3%;
+  }
+  article > h3 {
+    color: var(--bg-primary);
+    justify-content: center;
+    margin:10px;
+  }
+  article > p {
+    margin:20px;
+  }
+  /*--------------------Footer-------------------------------------------------*/
+  body > footer{
+    width: 100%;
+    background-color: var(--bg-primary);
+    padding-top:3%;
+    margin-top:auto;
+  }
+  body > footer > .main{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-family: 'Bubble', sans-serif;
+    font-size: 2vw;
+  }
+  .footer-menu{
+    display:flex;
+    flex-direction: column;
+    margin-right: 5%;
+    margin-left: 2.5%;
+  }
+  .copyright{
+    font-size:1vw;
+    margin-left:.5%;
+    padding-bottom: .5%;
+  }
+}
+/*------------------------------------------CSS Ordinateur / Tablette----------------------------------*/
+@media only screen and (min-width:720px)
+{  
+  /*-----------------------Reset------------------------------------------*/
+  *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
   body{
     min-height:100vh;
     display: flex;
     flex-direction: column;
   }
-  /*--------------- style de mon header ------------*/
+  /*--------------------------Header------------------------*/
   body > header{
     width: 100%;
     background-color: var(--bg-primary);
   }
-
-  /*-------------------navBarNoCo&Co---------------------------------------------------*/
-
+  /*-------------------Barre de navigation---------------------------------------------------*/
   body > header > nav {
     width: 100%;
     height:9vh;
@@ -127,7 +406,7 @@
   body > header > nav > a:hover{
     color: rgba(4, 118, 126, 0.85);
   }
-  /*----------------------cardAccueilStyle-----------------------------------------*/
+  /*-------------------------------Page d'Accueil-----------------------------------------*/
   body > main > article {
     margin: 0;
     color: var(--fontColor);
@@ -157,8 +436,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 15px;
-    min-height: 250px;
+    padding: .5vh;
+    min-height: 30vh;
   }
   .tag {
     background: #cccccc;
@@ -186,33 +465,8 @@
     font-size: 1vw;
     margin: 10%;
   }
-  /*--------------------footer-------------------------------------------------*/
-  body > footer{
-    width: 100%;
-    background-color: var(--bg-primary);
-    height: 20%;
-    padding-top:3%;
-    margin-top:auto;
-  }
-  body > footer > .main{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-family: 'Bubble', sans-serif;
-    font-size: 1.5vw;
-
-  }
-  .footer-menu{
-    display:flex;
-    flex-direction: column;
-    margin-right: 5%;
-  }
-  .copyright{
-    margin-left:.5%;
-    padding-bottom: .5%;
-  }
-
-  /*----------------------------formConnexion/inscription----------------------------------------*/
+  
+  /*----------------------------Page Connexion | Inscription | Modification Animaux & User---------------------------*/
   form, .form {
     display: flex;
     align-items: center;
@@ -284,7 +538,7 @@
     background: #036e53;
   }
 
-  /*----------------------------formConnexion----------------------------------------*/
+  /*------------------------------------Page Contact----------------------------------------*/
 
   .forms-contact{
     width: 40%;
@@ -308,112 +562,160 @@
     text-align: center;
     color: green;
   }
-}
-/*-----------------------------------------card liste Animaux----------------------------------------------------------------------------*/
+/*-----------------------------------------Affichage des animaux---------------------------------------------*/
 
-body .containerAnimaux {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 100vw;
-  margin: 3% 0;
-  font-family:'Bubble', sans-serif;
-}
-
-body .containerAnimaux .cardAnimaux {
-  position: relative;
-  min-width: 17vw;
-  height: 45vh;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  margin: 2.5%;
-  transition: 0.5s;
-}
-
-
-body .containerAnimaux .cardAnimaux .boxAnimaux {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  right: 5%;
-  bottom: 5%;
-  background: #2a2b2f;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: 0.5s;
-}
-
-body .containerAnimaux .cardAnimaux .boxAnimaux:hover {
-  transform: translateY(-50px);
-}
-
-body .containerAnimaux .cardAnimaux .boxAnimaux:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
-  padding: 5%;
-  text-align: center;
-}
-
-body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux h3 {
-  font-size: 2.4vw;
-  color: #fff;
-  z-index: 1;
-  transition: 0.5s;
-  margin-bottom: 2%;
-}
-
-
-body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux p {
-  font-size: 1.3vw;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  z-index: 1;
-  transition: 0.5s;
-}
-
-body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton {
-  position: relative;
+  body .containerAnimaux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    margin: 3% 0;
     font-family:'Bubble', sans-serif;
+  }
+
+  body .containerAnimaux .cardAnimaux {
+    position: relative;
+    min-width: 17vw;
+    height: 45vh;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+      inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+      5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 2.5%;
+    transition: 0.5s;
+  }
+
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    background: #2a2b2f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux:hover {
+    transform: translateY(-50px);
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux {
+    padding: 5%;
+    text-align: center;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux h3 {
+    font-size: 2.4vw;
+    color: #fff;
+    z-index: 1;
+    transition: 0.5s;
+    margin-bottom: 2%;
+  }
+
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux p {
+    font-size: 1.3vw;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    transition: 0.5s;
+  }
+
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton {
+    position: relative;
+    font-family:'Bubble', sans-serif;
+    font-size: 1.3vw;
+    display: inline-block;
+    padding: 1.4vh 1vw;
+    background: black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 10%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+  body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
+  }
+
+  /*-----------------------------------------Page Infos Utiles------------------------------------------------------*/
+  .infosContainer {
+    font-family:'Mochi', sans-serif;
+    font-size: 1vw;
+    display: grid;
+  }
+  .infosContainer > h2 {
+    text-align: center;
+    font-size: 1.8vw;
+    color: rgba(255, 38, 0, 1);
+  }
+  .urgenceVeto {
   font-size: 1.3vw;
-  display: inline-block;
-  padding: 1.4vh 1vw;
-  background: black;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  margin-top: 10%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: 0.5s;
-}
-body .containerAnimaux .cardAnimaux .boxAnimaux .contentAnimaux .listButton:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-  background: #fff;
-  color: #000;
-}
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  color: red;
+  }
+  .urgenceVeto > article {
+    padding: 10px;
+    border: solid 3px;
+  }
+  .infosPoison,  .urgenceChat, .urgenceChien {
+    display: flex;
+    justify-content: space-around;
+    padding: 3%;
+  }
+  article > h3 {
+    color: var(--bg-primary);
+    justify-content: center;
+    margin:10px;
+  }
+  article > p {
+    margin:20px;
+  }
+  /*--------------------footer-------------------------------------------------*/
+  body > footer{
+    width: 100%;
+    background-color: var(--bg-primary);
+    height: 20%;
+    padding-top:3%;
+    margin-top:auto;
+  }
+  body > footer > .main{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: 'Bubble', sans-serif;
+    font-size: 1.5vw;
 
-/*-----------------------------------------css carteVeto------------------------------------------------------*/
-
-#map {
-  height: 100%;
-}
-
-
-/*body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  }
+  .footer-menu{
+    display:flex;
+    flex-direction: column;
+    margin-right: 5%;
+  }
+  .copyright{
+    margin-left:.5%;
+    padding-bottom: .5%;
+  }
 }

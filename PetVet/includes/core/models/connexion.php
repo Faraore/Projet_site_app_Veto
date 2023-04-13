@@ -1,22 +1,23 @@
 <?php
     class connexion{
-        private $c_id;
-        private $c_mail;
-        private $c_password;
+        private int $c_id;
+        private string $c_mail;
+        private string $c_password;
         
-
-        public function __construct(string $mail, string $password){
+        //Constructeur connexion
+        public function __construct(string $mail = '', string $password = ''){
             $this->c_mail = htmlentities($mail);
             $this->c_password = password_hash($password, PASSWORD_BCRYPT);
             $this->c_id = 0;
-        }
 
+        }
+        
+        //Getters & Setters 
         public function getId(): int{
             return $this->c_id;
         }
         public function setId(int $id): void{
             $this->c_id = $id;
-
         }
         public function getMail(): string{
             return $this->c_mail;

@@ -1,8 +1,6 @@
 <?php
 require_once "connexion.php";
 
-
-
 class proprietaire{
     private int $c_id;
     private string $c_nom;
@@ -11,12 +9,12 @@ class proprietaire{
     private string $c_adresse;
     private string $c_codePostal;
     private string $c_ville;
-    private connexion $c_connexion;
+    private ?connexion $c_connexion;
     
     
     
     public function __construct(string $nom ='', string $prenom ='', int $numAdresse = null, 
-    string $adresse = '', string $codePostal = '', string $ville = '', connexion $connexion = null){
+    string $adresse = '', string $codePostal = '', string $ville = '', ?connexion $connexion = null){
         
         
         $this->c_prenom = htmlentities($prenom);
@@ -25,7 +23,7 @@ class proprietaire{
         $this->c_adresse = htmlentities($adresse);
         $this->c_ville = htmlentities($ville);
         $this->c_nom = htmlentities($nom);
-        $this->c_connexion = $connexion;      
+        $this->c_connexion = $connexion ?? new connexion('','');     
     }
  
     public function getId(): int
@@ -68,70 +66,51 @@ class proprietaire{
     {
         return $this->c_numAdresse;
     }
-
    
     public function setNumAdresse(int $numAdresse): void
     {
         $this->c_numAdresse = $numAdresse;
-
     }
 
-   
     public function getAdresse(): string
     {
         return $this->c_adresse;
     }
-
-    
     
     public function setAdresse(string $adresse):void
     {
         $this->c_adresse = htmlentities($adresse);
-
     }
-
     
     public function getCodePostal(): string
     {
         return $this->c_codePostal;
     }
-
     
     public function setCodePostal($codePostal): void
     {
         $this->c_codePostal = htmlentities($codePostal);
-
     }
+
     public function getVille(): string
     {
         return $this->c_ville;
     }
-
     
-    public function setVille($Ville): void
+    public function setVille($ville): void
     {
         $this->c_ville = htmlentities($ville);
-
     }
 
-    public function setMail(): void
+    public function setConnexion(connexion $connexion): void
     {
-        $this->c_connexion->setMail();
+        $this->c_connexion = connexion;
     }
 
-    public function getMail(): string
+    public function getConnexion(): connexion
     {
-        return $this->c_connexion->getMail();
+        return $this->c_connexion;
     }
 
-    public function getPassword(): string
-    {
-        return $this->c_connexion->getPassword();
-    }
-
-    public function setPassword(): void
-    {
-        $this->c_connexion->setPassword();
-    }
 
 }
