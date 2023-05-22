@@ -6,8 +6,8 @@
     function getAllSexes(): array{
         $conn = getConnection();
 
-        $SQLQuery = "SELECT id, sexe 
-                     FROM sexe_des_animaux";
+        $SQLQuery = "SELECT id, gender 
+                     FROM animals_gender";
 
         
 		$SQLStmt = $conn->prepare($SQLQuery);
@@ -16,7 +16,7 @@
         $listeSexes = array();
 
         while($SQLRow =$SQLStmt->fetch(PDO::FETCH_ASSOC)){
-            $unSexe = new sexe ($SQLRow['sexe']);
+            $unSexe = new sexe ($SQLRow['gender']);
 
             $unSexe->setId($SQLRow['id']);
 
@@ -30,8 +30,8 @@
     function getSexeById(int $id): sexe{
 		$conn = getConnection();
 
-		$SQLQuery = "SELECT id, sexe
-			FROM sexe_des_animaux
+		$SQLQuery = "SELECT id, gender
+			FROM animals_gender
 			WHERE id = :id";
 
 		$SQLStmt = $conn->prepare($SQLQuery);
@@ -39,7 +39,7 @@
 		$SQLStmt->execute();
 
 		$SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
-		$unSexe = new sexe($SQLRow['sexe']);
+		$unSexe = new sexe($SQLRow['gender']);
 		$unSexe->setId($SQLRow['id']);
 		
 		$SQLStmt->closeCursor();

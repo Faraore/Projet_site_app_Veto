@@ -16,7 +16,7 @@ modifButtons.forEach(element => {
 //affiche la fenetre de confirmation de suppression et renvoie vers la page qui gere la suppression 
 function deleteFunction(){
     idAnimal = this.getAttribute('form');
-    if(confirm('Êtes-vous sûr de vouloir supprimer cet animal ?' + idAnimal)){
+    if(confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')){
         window.location.href='index.php?page=animaux&action=delete&id=' + idAnimal;
 
       };

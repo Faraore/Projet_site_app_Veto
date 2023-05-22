@@ -15,7 +15,7 @@
         ?poids $poids = null, ?famille $famille = null, ?sexe $sexe = null){
 
             
-            $this->c_nom = htmlentities($nom);
+            $this->c_nom = htmlspecialchars($nom);
 
             //Gestion des paramètres null
             if (is_null($dateNaissance)){
@@ -50,7 +50,7 @@
     
         public function setNom(string $nom): void
         {
-            $this->c_nom = htmlentities($nom);
+            $this->c_nom = htmlspecialchars($nom);
         }
         public function getDateNaissance(): DateTime
         {

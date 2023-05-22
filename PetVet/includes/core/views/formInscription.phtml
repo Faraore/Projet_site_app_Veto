@@ -10,13 +10,7 @@
 <body>
 	<header>
 		<nav>
-		<?php 
-			if(empty($_SESSION)){
-				require "includes/partials/navbarNoCo.php";
-			}else{
-				require "includes/partials/navbarCo.php";
-			}
-		?>
+		<?php require "includes/partials/navbarNoCo.php"; ?>
 		</nav>
 	</header>
 	<main>
@@ -25,15 +19,15 @@
 				<div class ="signup">
 					<div class="heading">Pas encore inscrit ? </div>
 					<form action="" method= "post" autocomplete="off">
-						<input type="text" name="champNom" id="champNom" placeholder="Nom" required>
-						<input type="text" name="champPrenom" id="champPrenom" placeholder="Prénom" required>
-						<input type="email" name="champEmail" id="champEmail" placeholder="Email" required>
+						<input type="text" name="champNom" id="champNom" data-required data-name="champNom" value=""placeholder="Nom" >
+						<input type="text" name="champPrenom" id="champPrenom" data-required data-name="champPrenom" value="" placeholder="Prénom" >
+						<input type="email" name="champEmail" id="champEmail" data-required data-name="champEmail" value="" placeholder="Email" >
 						<?= $message ?? '' ?>
-						<input type="password" name="champPassword" id="champPassword" minlenght = "8" placeholder="Password (8 caractères minimum)" required>
-						<input type="number" name="champNumAdresse" id="champNumAdresse" placeholder="Numéro d'adresse" required>
-						<input type="text" name="champNomAdresse" id="champNomAdresse" placeholder="Adresse" required>
-						<input type="number" name="champCodePostal" id="champCodePostal" placeholder="Code Postal" required>
-						<input type="text" name="champVille" id="champVille" placeholder="Ville" required>
+						<input type="password" name="champPassword" id="champPassword" autocomplete="off" data-required data-name="champPassword data-length="8" placeholder="Password (Maj + 8 caract mini + 1 caract spé )" >
+						<input type="number" name="champNumAdresse" id="champNumAdresse" data-required data-name="champNumAdresse" value="" placeholder="Numéro d'adresse" >
+						<input type="text" name="champNomAdresse" id="champNomAdresse" data-required data-name="champNomAdresse" value="" placeholder="Adresse" >
+						<input type="number" name="champCodePostal" id="champCodePostal" data-required data-name="champCodePostal" value="" placeholder="Code Postal" >
+						<input type="text" name="champVille" id="champVille" data-required data-name="champVille" value="" placeholder="Ville" >
 						<button class="buttonForms" id="btnInscrip" type="submit">Inscription</button>
 					</form>
 				</div>
@@ -44,8 +38,7 @@
 
     
 </body>
-<script src="../../../public/scripts/script.js"></script>
-</html>
+<script type="module" src="public/scripts/script_inscription.js"></script></html>
   
 
 

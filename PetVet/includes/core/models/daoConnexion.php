@@ -43,6 +43,23 @@
         return ($idUser);
 
     }
+    function getNamebyMail(string $mail): string{
+        $conn = getConnection();
+
+        $SQLQuery = "SELECT o.first_name FROM owner o INNER JOIN connexion c on c.id = o.id_connexion WHERE c.mail = :mail";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $SQLStmt->execute();
+
+        $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
+		$nameUser = $SQLRow['first_name'];
+
+        $SQLStmt->closeCursor();
+
+        return ($nameUser);
+
+    }
     // compare le password rentré a celui dans la bdd 
     function checkCo($mail, $password): bool{
         $conn = getConnection();
@@ -68,8 +85,8 @@
     {
         $conn = getConnection();
 
-        $SQLQuery = "SELECT p.id, p.nom, p.prenom, p.numero_adresse, p.nom_adresse, p.codePostal, p.ville, c.mail, c.password
-                        FROM proprietaires p 
+        $SQLQuery = "SELECT p.id, p.last_name, p.first_name, p.address_number, p.street_address, p.post_code, p.city, c.mail, c.password
+                        FROM owner p 
                         INNER JOIN connexion c on c.id = p.id_connexion 
                         WHERE p.id = :id;";
                         
@@ -81,12 +98,12 @@
         
         $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
         $unUser = new proprietaire(             
-                $SQLRow['nom'], 
-                $SQLRow['prenom'],
-                $SQLRow['numero_adresse'],
-                $SQLRow['nom_adresse'],
-                $SQLRow['codePostal'],
-                $SQLRow['ville'],
+                $SQLRow['last_name'], 
+                $SQLRow['first_name'],
+                $SQLRow['address_number'],
+                $SQLRow['street_address'],
+                $SQLRow['post_code'],
+                $SQLRow['city'],
                 new connexion($SQLRow['mail'], $SQLRow['password']));
 
         $unUser->setId($SQLRow['id']);
@@ -103,9 +120,9 @@
     
             $conn = getConnection();
        
-            $SQLQuery = "UPDATE proprietaires
-            SET nom = :nom, prenom = :prenom, numero_adresse = :numero_adresse, nom_adresse = :nom_adresse,codePostal = :codePostal,
-            ville = :ville
+            $SQLQuery = "UPDATE owner
+            SET last_name = :nom, first_name = :prenom, address_number = :numero_adresse, street_address = :nom_adresse, post_code = :codePostal,
+            city = :ville
             WHERE id = :id";
     
             $SQLStmt = $conn->prepare($SQLQuery);

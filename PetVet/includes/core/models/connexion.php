@@ -6,7 +6,7 @@
         
         //Constructeur connexion
         public function __construct(string $mail = '', string $password = ''){
-            $this->c_mail = htmlentities($mail);
+            $this->c_mail = htmlspecialchars($mail);
             $this->c_password = password_hash($password, PASSWORD_BCRYPT);
             $this->c_id = 0;
 
@@ -23,7 +23,7 @@
             return $this->c_mail;
         }
         public function setMail(string $mail): void{
-            $this->c_mail = htmlentities($mail);
+            $this->c_mail = htmlspecialchars($mail);
         }
         public function getPassword(): string{
             return $this->c_password;

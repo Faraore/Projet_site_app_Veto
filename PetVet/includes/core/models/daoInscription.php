@@ -29,7 +29,7 @@
             $response = true;
         }
 
-        $SQLQuery2 ="INSERT INTO proprietaires(id, nom, prenom, numero_adresse, nom_adresse, codePostal, ville, id_connexion) 
+        $SQLQuery2 ="INSERT INTO owner(id, last_name, first_name, address_number, street_address, post_code, city, id_connexion) 
                      VALUES(:id, :nom, :prenom, :numAdresse, :adresse, :codePostal, :ville, :idConnexion)";
         $SQLStmt2 = $conn->prepare($SQLQuery2);
         $SQLStmt2->bindValue(':id', $conn->lastInsertId(), PDO::PARAM_STR);

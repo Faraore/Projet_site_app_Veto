@@ -13,8 +13,9 @@
 
                         $_SESSION['mail'] = $mailSaisi;
                         $_SESSION['id'] = getIdbyMail($mailSaisi);
+                        $_SESSION['name'] = getNameByMail($mailSaisi);
 
-                        print("Authentification reussi");
+                        echo("Authentification reussi");
                         header("Location: ?page=animaux&action=list");
                     }else{
                         $message ="Information fausse";
@@ -39,38 +40,42 @@
         
         case 'informations':{
             require_once "includes/core/models/daoConnexion.php";
-           
-            $unUser = getUserById($_SESSION['id']);
-           
-            if(empty($_POST)){
-
-                $unUser;
-                
-           }else{
-            //je viens de valider le form cliqué sur modifier
-                $unUser->setNom($_POST['champNom']);
-                $unUser->setPrenom($_POST['champPrenom']);
-                $unUser->getConnexion()->setMail($_POST['champEmail']);
-                $unUser->setNumAdresse($_POST['champNumAdresse']);
-                $unUser->setAdresse($_POST['champNomAdresse']);
-                $unUser->setCodePostal($_POST['champCodePostal']);
-                $unUser->setVille($_POST['champVille']);
-           
+            if(isset($_SESSION['mail'])){
+                $unUser = getUserById($_SESSION['id']);
             
-                if(updateUser($unUser)){
-                    //TODO Message update effectué
-                    header('Location: ?page=animaux&action=list');
-                }else{
-                    $message = "Erreur de mise à jour de vos données";
+                if(empty($_POST)){
+
+                    $unUser;
+                    
+            }else{
+                //je viens de valider le form cliqué sur modifier
+                    $unUser->setNom($_POST['champNom']);
+                    $unUser->setPrenom($_POST['champPrenom']);
+                    $unUser->getConnexion()->setMail($_POST['champEmail']);
+                    $unUser->setNumAdresse($_POST['champNumAdresse']);
+                    $unUser->setAdresse($_POST['champNomAdresse']);
+                    $unUser->setCodePostal($_POST['champCodePostal']);
+                    $unUser->setVille($_POST['champVille']);
+            
+                
+                    if(updateUser($unUser)){
+                        //TODO Message update effectué
+                        header('Location: ?page=animaux&action=list');
+                    }else{
+                        $message = "Erreur de mise à jour de vos données";
+                    }
                 }
+                require_once "includes/core/views/formModifUser.phtml";
+                break;
+            }else{
+                header('Location: index.php?page=connexion&action=connexion');
+            }   
+                }
+        
+            default:{
+        
             }
-            require_once "includes/core/views/formModifUser.phtml";
-            break;
-            }
-    
-        default:{
-    
-        }
+        
     }
     
        

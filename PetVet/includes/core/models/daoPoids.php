@@ -5,8 +5,8 @@
     function getAllPoids():array{
         $conn = getConnection();
 
-        $SQLQuery = "SELECT id, poids
-                     FROM poids";
+        $SQLQuery = "SELECT id, weight
+                     FROM weight";
         
         $SQLStmt = $conn->prepare($SQLQuery);
 		$SQLStmt->execute();
@@ -22,7 +22,7 @@
     function insertPoids(poids $newPoids): bool{
         $conn = getConnection();
 
-        $SQLQuery = "INSERT INTO poids(poids) 
+        $SQLQuery = "INSERT INTO weight(weight) 
                      VALUES(:poids,)";
 
         $SQLStmt = $conn->prepare($SQLQuery);

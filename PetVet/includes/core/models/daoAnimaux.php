@@ -11,12 +11,12 @@
     function getAllAnimaux(): array{
         $conn = getConnection();
 
-        $SQLQuery = "SELECT a.id, a.nom, a.date_de_naissance, f.type_animal, s.sexe, pd.poids 
-                        FROM animaux a 
-                        INNER JOIN proprietaires p on p.id = a.id_proprietaires 
-                        INNER JOIN famille f on a.id_famille = f.id 
-                        INNER JOIN sexe_des_animaux s on s.id = a.id_sexe_des_animaux 
-                        INNER JOIN poids pd on pd.id = a.id_poids
+        $SQLQuery = "SELECT a.id, a.name, a.birth_date, f.family_type, s.gender, pd.weight 
+                        FROM animals a 
+                        INNER JOIN owner p on p.id = a.id_owner
+                        INNER JOIN family f on a.id_family = f.id 
+                        INNER JOIN animals_gender s on s.id = a.id_animals_gender 
+                        INNER JOIN weight pd on pd.id = a.id_weight
                         WHERE p.id = :id;";
                      
                      
@@ -30,11 +30,11 @@
 			$unAnimal = 
             new animaux(
                 
-                $SQLRow['nom'], 
-                date_create($SQLRow['date_de_naissance']),
-                new poids($SQLRow['poids']),
-                new famille($SQLRow['type_animal']), 
-                new sexe($SQLRow['sexe']));
+                $SQLRow['name'], 
+                date_create($SQLRow['birth_date']),
+                new poids($SQLRow['weight']),
+                new famille($SQLRow['family_type']), 
+                new sexe($SQLRow['gender']));
 			
 			$unAnimal->setId($SQLRow['id']);
 
@@ -52,7 +52,7 @@
 
         $conn = getConnection();
 
-        $SQLQuery = "INSERT INTO poids(poids)
+        $SQLQuery = "INSERT INTO weight(weight)
         VALUE (:poids)";
         $SQLStmt = $conn->prepare($SQLQuery);
 
@@ -65,7 +65,7 @@
             $response = true;
         }
 
-        $SQLQuery2 = "INSERT INTO animaux(nom, date_de_naissance, id_proprietaires, id_famille, id_sexe_des_animaux,id_poids)
+        $SQLQuery2 = "INSERT INTO animals (name, birth_date, id_owner, id_family, id_animals_gender ,id_weight)
                      VALUE (:nom, :date_de_naissance, :idProprietaire, :idFamille, :idSDA, :idPoids)";
 
         $SQLStmt2 = $conn->prepare($SQLQuery2);
@@ -75,7 +75,7 @@
         $SQLStmt2->bindValue(':idProprietaire', $_SESSION['id'],PDO::PARAM_INT);
         $SQLStmt2->bindValue(':idFamille', $newAnimal->getFamille()->getId(),PDO::PARAM_INT);
         $SQLStmt2->bindValue(':idSDA', $newAnimal->getSexe()->getId(),PDO::PARAM_INT);
-        $SQLStmt2->bindValue(':idPoids',$conn->lastInsertId(), PDO::PARAM_INT);
+        $SQLStmt2->bindValue(':idPoids', $conn->lastInsertId(), PDO::PARAM_INT);
 
 
         if(!$SQLStmt2->execute()){
@@ -92,12 +92,12 @@
     function getAnimalById(int $id): animaux{
         $conn = getConnection();
 
-        $SQLQuery = "SELECT a.id, a.nom, a.date_de_naissance, f.type_animal, f.id as idFamille, s.sexe, s.id as idSexe, pd.id as idPoids, pd.poids
-                        FROM animaux a 
-                        INNER JOIN proprietaires p on p.id = a.id_proprietaires 
-                        INNER JOIN famille f on a.id_famille = f.id 
-                        INNER JOIN sexe_des_animaux s on s.id = a.id_sexe_des_animaux 
-                        INNER JOIN poids pd on pd.id = a.id_poids
+        $SQLQuery = "SELECT a.id, a.name, a.birth_date, f.family_type, f.id as idFamille, s.gender, s.id as idSexe, pd.id as idPoids, pd.weight
+                        FROM animals a 
+                        INNER JOIN owner p on p.id = a.id_owner 
+                        INNER JOIN family f on a.id_family = f.id 
+                        INNER JOIN animals_gender s on s.id = a.id_animals_gender 
+                        INNER JOIN weight pd on pd.id = a.id_weight
                         WHERE a.id = :id;";
                      
                      
@@ -108,11 +108,11 @@
         
         $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
         $unAnimal = new animaux(               
-                $SQLRow['nom'], 
-                date_create($SQLRow['date_de_naissance']),
-                new poids($SQLRow['poids']),
-                new famille($SQLRow['type_animal']), 
-                new sexe($SQLRow['sexe']));
+                $SQLRow['name'], 
+                date_create($SQLRow['birth_date']),
+                new poids($SQLRow['weight']),
+                new famille($SQLRow['family_type']), 
+                new sexe($SQLRow['gender']));
 
                 $unAnimal->setId($SQLRow['id']);
                 $unAnimal->getFamille()->setId($SQLRow['idFamille']);
@@ -132,8 +132,8 @@ function updateAnimal(animaux $newAnimal): bool{
         $conn = getConnection();
 
 
-        $SQLQuery = "UPDATE animaux
-        SET nom = :nom, date_de_naissance = :date_de_naissance, id_famille = :idFamille, id_sexe_des_animaux = :idSexe
+        $SQLQuery = "UPDATE animals
+        SET name = :nom, birth_date = :date_de_naissance, id_family = :idFamille, id_animals_gender = :idSexe
         WHERE id = :id";
 
         $SQLStmt = $conn->prepare($SQLQuery);
@@ -152,8 +152,8 @@ function updateAnimal(animaux $newAnimal): bool{
              $response = true;
         }
 
-        $SQLQuery2 = "UPDATE poids
-        SET poids = :poids
+        $SQLQuery2 = "UPDATE weight
+        SET weight = :poids
         WHERE id = :id";
 
         $SQLStmt2 = $conn->prepare($SQLQuery2);
@@ -176,7 +176,7 @@ function updateAnimal(animaux $newAnimal): bool{
         //Déclencher un delete 
             $conn = getConnection();
 
-            $SQLQuery = "DELETE FROM animaux WHERE animaux.id = :id";
+            $SQLQuery = "DELETE FROM animals WHERE animals.id = :id";
             
     
             $SQLStmt = $conn->prepare($SQLQuery);
@@ -192,7 +192,7 @@ function updateAnimal(animaux $newAnimal): bool{
                  $response = true;
             }
 
-            $SQLQuery2 = "DELETE FROM poids WHERE poids.id = :id";
+            $SQLQuery2 = "DELETE FROM weight WHERE weight.id = :id";
     
             $SQLStmt2 = $conn->prepare($SQLQuery2);
             

@@ -7,7 +7,7 @@
         //Constructeur de la classe Famille
         public function __construct(string $type =''){
             $this->c_id = 0;
-            $this->c_type = htmlentities($type);
+            $this->c_type = htmlspecialchars($type);
         }
 
         //Getters & Setters
@@ -28,6 +28,6 @@
 
         public function setType(string $type): void
         {
-           $this->c_type = htmlentities($type);
+           $this->c_type = htmlspecialchars($type);
         }
     }

@@ -17,12 +17,12 @@ class proprietaire{
     string $adresse = '', string $codePostal = '', string $ville = '', ?connexion $connexion = null){
         
         
-        $this->c_prenom = htmlentities($prenom);
+        $this->c_prenom = htmlspecialchars($prenom);
         $this->c_numAdresse = $numAdresse;
         $this->c_codePostal = $codePostal;
-        $this->c_adresse = htmlentities($adresse);
-        $this->c_ville = htmlentities($ville);
-        $this->c_nom = htmlentities($nom);
+        $this->c_adresse = htmlspecialchars($adresse);
+        $this->c_ville = htmlspecialchars($ville);
+        $this->c_nom = htmlspecialchars($nom);
         $this->c_connexion = $connexion ?? new connexion('','');     
     }
  
@@ -45,7 +45,7 @@ class proprietaire{
 
     public function setNom( string $nom): void
     {
-        $this->c_nom = htmlentities($nom);
+        $this->c_nom = htmlspecialchars($nom);
 
     }
 
@@ -58,7 +58,7 @@ class proprietaire{
     
     public function setPrenom(string $prenom): void
     {
-        $this->c_prenom = htmlentities($prenom);
+        $this->c_prenom = htmlspecialchars($prenom);
 
     }
 
@@ -79,7 +79,7 @@ class proprietaire{
     
     public function setAdresse(string $adresse):void
     {
-        $this->c_adresse = htmlentities($adresse);
+        $this->c_adresse = htmlspecialchars($adresse);
     }
     
     public function getCodePostal(): string
@@ -89,7 +89,7 @@ class proprietaire{
     
     public function setCodePostal($codePostal): void
     {
-        $this->c_codePostal = htmlentities($codePostal);
+        $this->c_codePostal = htmlspecialchars($codePostal);
     }
 
     public function getVille(): string
@@ -99,7 +99,7 @@ class proprietaire{
     
     public function setVille($ville): void
     {
-        $this->c_ville = htmlentities($ville);
+        $this->c_ville = htmlspecialchars($ville);
     }
 
     public function setConnexion(connexion $connexion): void
@@ -110,6 +110,16 @@ class proprietaire{
     public function getConnexion(): connexion
     {
         return $this->c_connexion;
+    }
+
+    public function getMail(): string
+    {
+        return $this->getConnexion()->getMail();
+
+    }
+    public function getPassword(): string
+    {
+        return $this->getConnexion()->getPassword();
     }
 
 

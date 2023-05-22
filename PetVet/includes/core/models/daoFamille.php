@@ -6,8 +6,8 @@
     function getAllFamilles(): array{
         $conn = getConnection();
         
-        $SQLQuery = "SELECT id, type_animal 
-                     FROM famille GROUP BY type_animal";
+        $SQLQuery = "SELECT id, family_type
+                     FROM family GROUP BY family_type";
 
 		$SQLStmt = $conn->prepare($SQLQuery);
 		$SQLStmt->execute();
@@ -15,7 +15,7 @@
 		$listeFamilles = array();
 
 		while ($SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC)){
-			$uneFamille = new famille($SQLRow['type_animal']);
+			$uneFamille = new famille($SQLRow['family_type']);
 			
 			$uneFamille->setId($SQLRow['id']);
 
@@ -30,8 +30,8 @@
     function getFamilleById(int $id): famille{
 		$conn = getConnection();
 
-		$SQLQuery = "SELECT id, type_animal
-			FROM famille
+		$SQLQuery = "SELECT id, family_type
+			FROM family
 			WHERE id = :id";
 
 		$SQLStmt = $conn->prepare($SQLQuery);
@@ -39,11 +39,10 @@
 		$SQLStmt->execute();
 
 		$SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
-		$uneFamille = new famille($SQLRow['type_animal']);
+		$uneFamille = new famille($SQLRow['family_type']);
 		$uneFamille->setId($SQLRow['id']);
 		
 		$SQLStmt->closeCursor();
 		return $uneFamille;
 	}
-	
     

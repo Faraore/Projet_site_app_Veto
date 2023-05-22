@@ -109,6 +109,16 @@
     font-size: 1.5vw;
     margin-left: 5%;
   }
+  .welcomeMessage{
+    font-family: 'Bubble', sans-serif;
+    font-size: 2vw;
+      margin: 1%;
+      text-transform:uppercase;
+      font-weight: bold;
+      color: var(--fontColor);
+      display: flex;
+      justify-content: center;
+  }
  
 /*----------------------------Page Connexion | Inscription | Modification Animaux & User---------------------------*/
   form, .form {
@@ -717,5 +727,23 @@
   .copyright{
     margin-left:.5%;
     padding-bottom: .5%;
+  }
+  span.form-error{
+    display: block;
+    /*background-color: #e3309c;*/
+    color: rgb(255, 2, 2);
+    padding: 1em;
+    border: 5px;
+    width: 90%;
+  }
+  .welcomeMessage{
+    font-family: 'Bubble', sans-serif;
+    font-size: 2vw;
+      margin: 1%;
+      text-transform:uppercase;
+      font-weight: bold;
+      color: var(--fontColor);
+      display: flex;
+      justify-content: center;
   }
 }
